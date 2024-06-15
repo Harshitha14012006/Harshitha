@@ -1,0 +1,172 @@
+1.Develop a Python program that safely performs division between two numbers provided by the user. Handle exceptions like division by zero and non-numeric inputs.
+
+Input Format: Two lines of input, each containing a number.
+
+Output Format: Print the result of the division or an error message if an exception occurs.
+
+
+For example:
+
+Input	Result
+10
+2
+5.0
+10
+0
+Error: Cannot divide or modulo by zero.
+ten
+5
+Error: Non-numeric input provided.
+
+program:
+#Division Exception
+try:
+    a=float(input())
+    b=float(input())
+    c=a/b
+except ValueError:
+    print("Error: Non-numeric input provided.")
+except ZeroDivisionError:
+    print("Error: Cannot divide or modulo by zero.")
+else:
+    print(a/b)
+
+2.Write a Python program that performs division and modulo operations on two numbers provided by the user. Handle division by zero and non-numeric inputs.
+
+Input Format:
+
+Two lines of input, each containing a number.
+
+Output Format:
+
+Print the result of division and modulo operation, or an error message if an exception occurs.
+
+For example:
+
+Input	Result
+10
+2
+Division result: 5.0
+Modulo result: 0
+7
+3
+Division result: 2.3333333333333335
+Modulo result: 1
+8
+0
+Error: Cannot divide or modulo by zero.
+
+program:
+try:
+    a=float(input())
+    b=float(input())
+    c=a/b
+except ValueError:
+    print("Error: Non-numeric input provided.")
+except ZeroDivisionError:
+    print("Error: Cannot divide or modulo by zero.")
+else:
+    print("Division result:",a/b) 
+    print("Modulo result:",int(a%b)) 
+
+3.Problem Description:
+
+Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+
+
+
+Input Format:
+
+A single line input representing the user's age.
+
+
+
+Output Format:
+
+Print a message based on the age or an error if the input is invalid.
+
+For example:
+
+Input	Result
+25
+You are 25 years old.
+rec
+Error: Please enter a valid age.
+-5
+Error: Please enter a valid age.
+
+program:
+#Age Exception
+try:
+    n=int(input())
+    if n>=0:
+        print("You are %d years old."%n)
+    else:
+        raise exception
+except:
+    print("Error: Please enter a valid age.")
+
+4.Problem Description:
+
+Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+
+Input Format:
+
+User inputs a number.
+
+Output Format:
+
+Confirm the input or print an error message if it's invalid or out of range.
+
+For example:
+
+Input	Result
+1
+Valid input.
+101
+Error: Number out of allowed range
+rec
+Error: invalid literal for int()
+
+program:
+#Exception
+
+try:
+    n=int(input())
+    if n>=1 and n<=100:
+        print("Valid input.")
+    else:
+        raise Exception
+except ValueError:
+    print("Error: invalid literal for int()")
+except:
+    print("Error: Number out of allowed range")
+
+5.Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+
+Input Format: A single line input representing the user's age.
+
+Output Format: Print a message based on the age or an error if the input is invalid.
+
+
+For example:
+
+Input	Result
+twenty
+Error: Please enter a valid age.
+25
+You are 25 years old.
+-1
+Error: Please enter a valid age.
+
+program:
+#Exception
+try:
+    a=int(input())
+    if a>=0:
+        print(f"You are {a} years old.")
+    else:
+        raise Exception
+  
+except:
+    print("Error: Please enter a valid age.")
