@@ -1,0 +1,200 @@
+1.An e-commerce company plans to give their customers a special discount for Christmas.
+
+They are planning to offer a flat discount. The discount value is calculated as the sum of all
+
+the prime digits in the total bill amount.
+
+Write an algorithm to find the discount value for the given total bill amount.
+
+Constraints
+
+1 <= orderValue< 10e100000
+
+Input
+
+The input consists of an integer orderValue, representing the total bill amount.
+
+Output
+
+Print an integer representing the discount value for the given total bill amount.
+
+Example Input
+
+578
+
+Output
+
+12
+
+For example:
+
+Test	Result
+print(christmasDiscount(578))
+12
+
+program:
+def christmasDiscount(n):
+    sum = 0
+    n = str(n)
+    for i in n:
+        p = 0
+        for k in range(2,int(i)+1):
+            if(int(i)%k==0):
+                p+=1
+        if(p==1):
+            sum+=int(i)
+    return sum
+
+2.Write a code to check whether product of digits at even places is divisible by sum of digits
+
+at odd place of a positive integer.
+
+Input Format:
+
+Take an input integer from stdin.
+
+Output Format:
+
+Print TRUE or FALSE.
+
+Example Input:
+
+1256
+
+Output:
+
+TRUE
+
+Example Input:
+
+1595
+
+Output:
+
+FALSE
+
+For example:
+
+Test	Result
+print(productDigits(1256))
+True
+print(productDigits(1595))
+False
+
+program:
+def productDigits(n):
+    n = str(n)
+    pdt = 1
+    sum1 = 0
+    for i in range(len(n)):
+        if((i+1)%2==0):
+            pdt*=int(n[i])
+        else:
+            sum1+=int(n[i])
+    return(pdt%sum1==0)
+    
+3.complete function to implement coin change making problem i.e. finding the minimum
+
+number of coins of certain denominations that add up to given amount of money.
+
+The only available coins are of values 1, 2, 3, 4
+
+Input Format:
+
+Integer input from stdin.
+
+Output Format:
+
+return the minimum number of coins required to meet the given target.
+
+Example Input:
+
+16
+
+Output:
+
+4
+
+Explanation:
+
+We need only 4 coins of value 4 each
+
+Example Input:
+
+25
+
+Output:
+
+7
+
+Explanation:
+
+We need 6 coins of 4 value, and 1 coin of 1 valuevalue
+
+program:
+def coinChange(n):
+ a=n//4
+ b=n%4
+ return a+b
+
+4.A number is considered to be ugly if its only prime factors are 2, 3 or 5.
+
+[1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …] is the sequence of ugly numbers.
+
+Task:
+
+complete the function which takes a number n as input and checks if it's an ugly number.
+
+return ugly if it is ugly, else return not ugly
+
+Hint:
+
+An ugly number U can be expressed as: U = 2^a * 3^b * 5^c, where a, b and c are nonnegative integers.
+
+For example:
+
+Test	Result
+print(checkUgly(6))
+ugly 
+print(checkUgly(21))
+not ugly 
+
+program:
+def checkUgly(n):
+    if n <= 0:
+        return "not ugly"
+    
+    for p in [2, 3, 5]:
+        while n % p == 0:
+            n //= p
+    
+    return "ugly" if n == 1 else "not ugly"
+
+5.An automorphic number is a number whose square ends with the number itself.
+
+For example, 5 is an automorphic number because 5*5 =25. The last digit is 5 which same
+
+as the given number.
+
+If the number is not valid, it should display “Invalid input”.
+
+If it is an automorphic number display “Automorphic” else display “Not Automorphic”.
+
+Input Format:
+
+Take a Integer from Stdin Output Format: Print Automorphic if given number is Automorphic number,otherwise Not Automorphic Example input: 5 Output: Automorphic Example input: 25 Output: Automorphic Example input: 7 Output: Not Automorphic
+
+For example:
+
+Test	Result
+print(automorphic(5))
+Automorphic
+
+program:
+def automorphic(n):
+    s=n*n
+    b=len(str(s)) 
+    if s%(10**(b-1))==n:
+        return "Automorphic"
+    return "Not Automorphic"
+    
