@@ -1,0 +1,919 @@
+1.Determine the factors of a number (i.e., all positive integer values that evenly divide into a number) and then return the pth element of the list, sorted ascending. If there is no pth element, return 0.
+
+Example
+
+n = 20
+
+p = 3
+
+The factors of 20 in ascending order are {1, 2, 4, 5, 10, 20}. Using 1-based indexing, if p = 3, then 4 is returned. If p > 6, 0 would be returned.
+
+Constraints
+
+1 ≤ n ≤ 1015
+
+1 ≤ p ≤ 109
+
+The first line contains an integer n, the number to factor.
+
+The second line contains an integer p, the 1-based index of the factor to return.
+
+Sample Case 0
+
+Sample Input 0
+
+10
+
+3
+
+Sample Output 0
+
+5
+
+Explanation 0
+
+Factoring n = 10 results in {1, 2, 5, 10}. Return the p = 3rd factor, 5, as the answer.
+
+Sample Case 1
+
+Sample Input 1
+
+10
+
+5
+
+Sample Output 1
+
+0
+
+Explanation 1
+
+Factoring n = 10 results in {1, 2, 5, 10}. There are only 4 factors and p = 5, therefore 0 is returned as the answer.
+
+Sample Case 2
+
+Sample Input 2
+
+1
+
+1
+
+Sample Output 2
+
+1
+
+Explanation 2
+
+Factoring n = 1 results in {1}. The p = 1st factor of 1 is returned as the answer.
+
+
+For example:
+
+Input	Result
+10
+3
+5
+10
+5
+0
+1
+1
+1
+
+program:
+def factors(n):
+    factors_list = []
+    for i in range(1, int(n**0.5) + 1):
+        if n%i==0:
+            factors_list.append(i)
+            if i != n // i:
+                factors_list.append(n // i)
+    return sorted(factors_list)
+
+def find_pth_factor(n, p):
+    factor_list = factors(n)
+    if p > len(factor_list):
+        return 0
+    return factor_list[p - 1]
+
+# Input
+n = int(input())
+p = int(input())
+
+# Output
+print(find_pth_factor(n, p))
+
+2.Find the intersection of two sorted arrays.
+
+OR in other words,
+
+Given 2 sorted arrays, find all the elements which occur in both the arrays.
+
+Input Format
+
+The first line contains T, the number of test cases. Following T lines contain:
+
+1.      Line 1 contains N1, followed by N1 integers of the first array
+
+2.      Line 2 contains N2, followed by N2 integers of the second array
+
+Output Format
+
+The intersection of the arrays in a single line
+
+Example
+
+Input:
+
+1
+
+3 10 17 57
+
+6 2 7 10 15 57 246
+
+Output:
+
+10 57
+
+Input:
+
+1
+
+7 
+
+1 
+
+2 
+
+3 
+
+3 
+
+4 
+
+5 
+
+6
+
+2 
+
+1 
+
+6
+
+Output:
+
+1 6
+
+
+For example:
+
+Input	Result
+1
+3 
+10 
+17 
+57
+6 
+2 
+7 
+10 
+15
+57 
+246
+10 57 
+1
+7 
+1 
+2 
+3 
+3 
+4 
+5 
+6
+2 
+1 
+6
+1 6
+
+program:
+t=int(input())
+l1=list()
+
+while(t!=0):
+    n1=int(input())
+    l1=[]
+    l2=[]
+    for i in range(0,n1):
+        a=int(input())
+        l1.append(a)
+    n2=int(input())
+    for i in range(0,n2):
+        a=int(input())
+        l2.append(a)
+    t=t-1
+    c=set(l1)
+    d=set(l2)
+    e=list(c.intersection(d))
+    e.sort()
+    for i in e:
+        print(i,end=' ')
+    print('\n')
+
+ 3.Consider a program to insert an element / item in the sorted array. Complete the logic by filling up required code in editable section. Consider an array of size 10. The eleventh item is the data is to be inserted.
+
+ 
+
+Sample Test Cases
+
+ 
+
+Test Case 1
+
+ 
+
+Input
+
+ 
+
+1
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+2
+
+ 
+
+Output
+
+ 
+
+ITEM to be inserted:2
+
+After insertion array is:
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+ 
+
+
+Test Case 2
+
+ 
+
+Input
+
+ 
+
+11
+
+22
+
+33
+
+55
+
+66
+
+77
+
+88
+
+99
+
+110
+
+120
+
+44
+
+ 
+
+Output
+
+ 
+
+ITEM to be inserted:44
+
+After insertion array is:
+
+11
+
+22
+
+33
+
+44
+
+55
+
+66
+
+77
+
+88
+
+99
+
+110
+
+120
+
+program:
+#array insert
+a=[]
+for i in range(0,11):
+    b=int(input())
+    a.append(b)
+#a.sort()
+print("ITEM to be inserted:",a[-1],sep='')
+a.sort()
+print("After insertion array is:")
+for i in a:
+    print(i)
+
+4.Complete the program to count frequency of each element of an array. Frequency of a particular element will be printed once.
+
+ 
+
+Sample Test Cases
+
+ 
+
+Test Case 1
+
+ 
+
+Input
+
+ 
+
+7
+
+23
+
+45
+
+23
+
+56
+
+45
+
+23
+
+40
+
+ 
+
+Output
+
+ 
+
+23 occurs 3 times
+
+45 occurs 2 times
+
+56 occurs 1 times
+
+40 occurs 1 times
+
+program:
+#Array frequency
+n=int(input())
+l=[]
+s=[]
+for i in range(0,n):
+    a=int(input())
+    l.append(a)
+    if a not in s:
+        s.append(a)
+for i in s:
+    c=l.count(i)
+    print(i,"occurs",c,"times")
+
+5.Write a program to print all the locations at which a particular element (taken as input) is found in a list and also print the total number of times it occurs in the list. The location starts from 1.
+
+ 
+
+For example, if there are 4 elements in the array:
+
+ 
+
+5
+
+6
+
+5
+
+7
+
+ 
+
+If the element to search is 5 then the output will be:
+
+ 
+
+5 is present at location 1
+
+5 is present at location 3
+
+5 is present 2 times in the array.
+
+ 
+
+Sample Test Cases
+
+ 
+
+Test Case 1
+
+ 
+
+Input
+
+ 
+
+4
+
+5
+
+6
+
+5
+
+7
+
+5
+
+ 
+
+Output
+
+ 
+
+5 is present at location 1.
+
+5 is present at location 3.
+
+5 is present 2 times in the array.
+
+ 
+
+Test Case 2
+
+ 
+
+Input
+
+ 
+
+5
+
+67
+
+80
+
+45
+
+97
+
+100
+
+50
+
+ 
+
+Output
+
+ 
+
+50 is not present in the array.
+
+program:
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+element_to_search = int(input())
+locations = []
+occurrences = 0
+for i in range(len(arr)):
+    if arr[i] == element_to_search:
+        locations.append(i + 1)
+        occurrences += 1
+
+# Output
+if occurrences == 0:
+    print(f"{element_to_search} is not present in the array.")
+else:
+    
+    for loc in locations:
+        print(f"{element_to_search} is present at location {loc}.")
+    print(f"{element_to_search} is present {occurrences} times in the array.")
+
+6.Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i != j.
+
+Input Format
+
+1.      First line is number of test cases T. Following T lines contain:
+
+2.      N, followed by N integers of the array
+
+3.      The non-negative integer k
+
+Output format
+
+Print 1 if such a pair exists and 0 if it doesn’t.
+
+Example
+
+Input
+
+1
+
+3 
+
+1 
+
+3 
+
+5
+
+4
+
+Output:
+
+1
+
+Input
+
+1
+
+3 
+
+1 
+
+3 
+
+5
+
+99
+
+Output
+
+0
+
+
+For example:
+
+Input	Result
+1
+3 
+1 
+3 
+5
+4
+1
+1
+3 
+1 
+3 
+5
+99
+0
+
+program:
+#sorted k
+t=int(input())
+
+for i in range(0,t):
+    n=int(input())
+    l=[]
+    for j in range(0,n):
+        a=int(input())
+        l.append(a)
+    p=int(input())
+    for k in range(0,n):
+        c=0
+        for m in range(i+1,n):
+            if l[m]-l[k]==p:
+                c=1
+                print('1')
+                break
+        if c==1:
+            break
+    if c==0:
+        print('0')
+    #print('\n')
+
+7.Write a Python program to check if a given list is strictly increasing or not. Moreover, If removing only one element from the list results in a strictly increasing list, we still consider the list true
+
+Input:
+
+n : Number of elements
+
+List1: List of values
+
+Output
+
+Print "True" if list is strictly increasing or decreasing else print "False"
+
+Sample Test Case
+
+Input
+
+7
+
+1
+
+2
+
+3
+
+0
+
+4
+
+5
+
+6
+
+Output 
+
+True
+
+program:
+def check_increasing_or_decreasing(lst):
+    # Function to check if a list is strictly increasing or strictly decreasing
+    increasing = True
+    decreasing = True
+    for i in range(1, len(lst)):
+        if lst[i] > lst[i - 1]:
+            decreasing = False
+        elif lst[i] < lst[i - 1]:
+            increasing = False
+    return increasing or decreasing
+
+def check_strictly_increasing_with_removal(lst):
+    # Function to check if removing only one element makes the list strictly increasing or decreasing
+    for i in range(len(lst)):
+        temp_lst = lst[:i] + lst[i+1:]
+        if check_increasing_or_decreasing(temp_lst):
+            return True
+    return False
+
+# Input
+n = int(input())
+lst = []
+for _ in range(n):
+    lst.append(int(input()))
+
+# Check if the list is strictly increasing or decreasing
+if check_increasing_or_decreasing(lst) or check_strictly_increasing_with_removal(lst):
+    print("True")
+else:
+    print("False")
+
+8.Output is a merged array without duplicates.
+
+Input Format
+
+N1 - no of elements in array 1
+
+Array elements for array 1
+
+N2 - no of elements in array 2
+
+Array elements for array2
+
+Output Format
+
+Display the merged array
+
+Sample Input 1
+
+5
+
+1 
+
+2 
+
+3 
+
+6 
+
+9
+
+4
+
+2 
+
+4 
+
+5 
+
+10
+
+Sample Output 1
+
+1 2 3 4 5 6 9 10
+
+program:
+#array elements
+n1=int(input())
+l1=[]
+for i in range(0,n1):
+    a=int(input())
+    l1.append(a)
+n2=int(input())
+l2=[]
+for i in range(0,n2):
+    a=int(input())
+    l2.append(a)
+l3=[]
+l3.extend(l1)
+l3.extend(l2)
+a=list(set(l3))
+a.sort()
+for i in a:
+    print(i,end=' ')
+
+9.Program to print all the distinct elements in an array. Distinct elements are nothing but the unique (non-duplicate) elements present in the given array.
+
+Input Format:
+
+First line take an Integer input from stdin which is array length n.
+
+Second line take n Integers which is inputs of array.
+
+Output Format:
+
+Print the Distinct Elements in Array in single line which is space Separated
+
+Example Input:
+
+5
+
+1 
+
+2 
+
+2 
+
+3 
+
+4
+
+Output:
+
+1 2 3 4
+
+Example Input:
+
+6
+
+1 
+
+1 
+
+2 
+
+2 
+
+3 
+
+3
+
+Output:
+
+1 2 3
+
+
+For example:
+
+Input	Result
+5
+1 
+2 
+2 
+3
+4
+1 2 3 4 
+6
+1 
+1 
+2 
+2 
+3 
+3
+1 2 3
+
+program:
+def find_distinct_elements(arr):
+    distinct_elements = []
+    for element in arr:
+        if element not in distinct_elements:
+            distinct_elements.append(element)
+    return distinct_elements
+
+# Input
+n = int(input())
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+
+# Finding and printing distinct elements
+distinct_elements = find_distinct_elements(arr)
+print(*distinct_elements)
+
+10.Given two lists A and B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
+
+We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.
+
+These lists A and B may contain duplicates. If there are multiple answers, output any of them.
+
+For example, given
+
+Input
+
+5
+
+12 28 46 32 50
+
+50 12 32 46 28
+
+Output
+
+1 4 3 2 0
+
+Explanation
+
+A = [12, 28, 46, 32, 50]
+
+B = [50, 12, 32, 46, 28]
+
+We should return
+
+[1, 4, 3, 2, 0]
+
+as P[0] = 1 because the 0th element of A appears at B[1], and P[1] = 4 because the 1st element of A appears at B[4], and so on.
+
+Note:
+
+A, B have equal lengths in range [1, 100].
+A[i], B[i] are integers in range [0, 10^5].
+
+program:
+# Input the size of the lists
+n = int(input())
+
+# Input list A
+A = list(map(int, input().split()))
+
+# Input list B
+B = list(map(int, input().split()))
+
+# Create a dictionary to store the mapping from elements of B to their indices
+mapping = {num: i for i, num in enumerate(B)}
+
+# Create the index mapping P from A to B
+P = [mapping[num] for num in A]
+
+# Output the index mapping
+print(*P)
+
