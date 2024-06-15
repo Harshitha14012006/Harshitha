@@ -1,0 +1,182 @@
+1.At a particular company, employees are rated at the end of each year. The rating scale begins at 0.0, with higher values indicating better performance and resulting in larger raises. The value awarded to an employee is either 0.0, 0.4, or 0.6 or more. Values between 0.0 and 0.4, and between 0.4 and 0.6 are never used. The meaning associated with each rating is shown in the following table. The amount of an employee’s raise is $2,400.00 multiplied by their rating.
+Rating
+Meaning
+
+0.0
+Unacceptable Performance
+
+0.4
+Acceptable Performance
+
+0.6
+Meritorious Performance
+
+Write a program that reads a rating from the user and indicates whether the performance for that rating is unacceptable, acceptable, or meritorious. The amount of the employee’s raise should also be reported. Your program should display an appropriate error message if an invalid rating is entered.
+Sample Input 1
+0.0
+Sample Output 1
+Based on that rating, your performance is Unacceptable.
+You will receive a raise of $0.00.
+Sample Input 2
+0.4
+Sample Output 2
+Based on that rating, your performance is Acceptable.
+You will receive a raise of $960.00.
+Sample Input 3
+0.7
+Sample Output 3
+Based on that rating, your performance is Meritorious.
+You will receive a raise of $1680.00.
+Sample Input 4
+0.5
+Sample Output 4
+That wasn’t a valid rating.
+
+
+
+
+
+#RATING
+n=float(input())
+if(n>0.0 and n<0.4) or (n>0.4 and n<0.6):
+    print("That wasn't a valid rating.")
+    r=-1
+elif(n==0.0):
+    print("Based on that rating, your performance is Unacceptable.")
+    r=0
+elif(n==0.4):
+    r=2400*n
+    print("Based on that rating, your performance is Acceptable.")
+elif(n==0.6):
+    r=2400*n
+    print("Based on that rating, your performance is Meritorious.")
+if (r!=-1):
+    print("You will receive a raise of $%.2f."%r)
+
+
+
+
+
+
+
+
+
+
+
+2. Write a program that reads an integer from the user. Then your program should display a message indicating whether the integer is even or odd.
+Sample Input 1
+5
+Sample Output 1
+5 is odd.
+Sample Input 2
+10
+Sample Output 2
+10 is even.
+For example:
+Input
+Result
+
+5
+5 is odd.
+
+
+
+#Even or odd
+n=int(input())
+if(n%2==0):
+    print(n,"is even.")
+else:
+    print(n,"is odd.")
+
+
+
+
+
+
+
+
+
+
+
+
+3.A toy vendor supplies three types of toys: Battery Based Toys, Key-based Toys, and Electrical Charging Based Toys. The vendor gives a discount of 10% on orders for battery-based toys if the order is for more than Rs. 1000. On orders of more than Rs. 100 for key-based toys, a discount of 5% is given, and a discount of 10% is given on orders for electrical charging based toys of value more than Rs. 500. Assume that the numeric codes 1, 2, and 3 are used for battery based toys, key-based toys, and electrical charging based toys respectively. Write a program that reads the product code and the order amount and prints out the net amount that the customer is required to pay after the discount.
+
+
+# product code
+c = int(input())
+n = float(input())
+a = n
+if (c == 1 and n > 1000):
+    a -= (0.10 * n)
+elif (c == 2 and n > 100):
+    a -= (0.05 * n)
+elif (c == 3 and n > 500):
+    a -= (0.10 * n)
+print(int(a))
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a program that accepts 5 inputs and returns the count of how many of those 5 are even.
+For example, If the five inputs are 12, 17, 19, 14, and 115, there are two even numbers 12 and 14. So, the program must return 2.
+Similarly, If the five inputs are 15, 0, -12, 19, and 28, there are three even numbers 0, -12, and 28. So, the program must return 3.
+Observe that zero is also considered an even number.
+For example:
+Input
+Result
+
+12 17 19 14 115
+2
+
+15 0 -12 19 28
+3
+
+
+
+# even count
+n = 5
+c = 0
+for i in range(0, n):
+    a = int(input())
+    if a % 2 == 0:
+        c = c + 1
+print(c)
+
+
+
+
+
+
+
+
+
+
+
+5. Write a Python program to calculate profit and loss (Cost Price and Selling Price is given as inputs).
+Sample Test Cases
+Test Case 1
+Input 6000.00 6700.50
+Output Profit amount: Rs. 700.50
+Test Case 2
+Input 600.50 520.00
+Output Loss amount: Rs. 80.50
+
+# profit or loss
+cp = float(input())
+sp = float(input())
+if sp > cp:
+    pl = sp - cp
+    print("Profit amount: Rs. %.2f" % pl)
+elif cp > sp:
+    pl = cp - sp
+    print("Loss amount: Rs. %.2f" % pl)
+else:
+    print("No profit No loss")
