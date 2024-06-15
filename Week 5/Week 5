@@ -1,0 +1,367 @@
+1.Given two Strings s1 and s2, remove all the characters from s1 which is present in s2.
+
+ 
+
+Constraints
+
+ 
+
+1<= string length <= 200
+
+ 
+
+Sample Input 1
+
+ 
+
+experience
+
+enc
+
+ 
+
+Sample Output 1
+
+ 
+
+xpri
+
+program:
+#remove characters
+s1=input()
+s2=input()
+s=''
+for i in range(0,len(s1)):
+    if s1[i] not in s2:
+        s=s+s1[i]
+        
+print(s)
+
+2.Consider the below words as key words and check the given input is key word or not.
+
+keywords: {break, case, continue, default, defer, else, for, func, goto, if, map, range, return, struct, type, var}
+
+Input format:
+
+Take string as an input from stdin.
+
+Output format:
+
+Print the word is key word or not.
+
+Example Input:
+
+break
+
+Output:
+
+break is a keyword
+
+Example Input:
+
+IF
+
+Output:
+
+IF is not a keyword
+
+
+For example:
+
+Input	Result
+break
+break is a keyword
+IF
+IF is not a keyword
+
+program:
+#keywords
+l=['break','case','continue','default','defer','else','for','func','goto','if','map','range','return','struct','type','var']
+s=input()
+
+if s in l:
+    print(s,"is a keyword")
+else:
+    print(s,"is not a keyword")
+
+3.Find if a String2 is substring of String1. If it is, return the index of the first occurrence. else return -1.
+
+Sample Input 1 
+
+thistest123string
+
+123
+
+Sample Output 1 
+
+8
+
+program:
+
+a=input()
+b=input()
+n=a.find(b)
+print(n)
+
+4.Write a program that takes as input a string (sentence), and returns its second word in uppercase.
+
+For example:
+
+If input is “Wipro Technologies Bangalore” the function should return “TECHNOLOGIES”
+
+If input is “Hello World” the function should return “WORLD”
+
+If input is “Hello” the program should return “LESS”
+
+NOTE 1: If input is a sentence with less than 2 words, the program should return the word “LESS”.
+
+NOTE 2: The result should have no leading or trailing spaces.
+
+
+For example:
+
+Input	Result
+Wipro Technologies Bangalore
+TECHNOLOGIES
+Hello World
+WORLD
+Hello
+LESS
+
+program:
+#second word
+s=input()
+z=s.split()
+if len(z)==1:
+    print("LESS")
+else:
+    print(z[1].upper())
+
+5.Assume that the given string has enough memory.
+
+ 
+
+Don't use any extra space(IN-PLACE)
+
+ 
+
+Sample Input 1
+
+ 
+
+a2b4c6
+
+ 
+
+Sample Output 1
+
+ 
+
+aabbbbcccccc
+
+program:
+s=input()
+n=len(s)
+#s1=''
+for i in range(0,n):
+    if s[i].isalpha()==True:
+        c=''
+        for j in range(i+1,n):
+           # print(s[j])
+            if s[j].isdigit()==True:
+                c=c+s[j]
+            if s[j].isalpha()==True:
+                break
+        #print(c)
+        s=s+s[i]*int(c)
+print(s[n:])
+
+6.Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character’s position doesn’t matter. If balanced display as "true" ,otherwise "false".
+
+
+For example:
+
+Input	Result
+Yn
+PYnative
+True
+
+program:
+#balance
+s1=input()
+s2=input()
+if s1 in s2:
+    print("True")
+else:
+    print("False")
+
+7.String should contain only the words are not palindrome.
+
+ 
+
+Sample Input 1
+
+ 
+
+Malayalam is my mother tongue
+
+ 
+
+Sample Output 1
+
+ 
+
+is my mother tonguetongue
+
+program:
+#palindrome
+s=input()
+s=s.lower()
+z=s.split()
+
+for i in z:
+    if i!=i[::-1]:
+        print(i,end=' ')
+
+8.Robert  is having 2 strings consist of uppercase & lowercase english letters. Now he want to compare those two strings lexicographically. The letters' case does not matter, that is an uppercase letter is considered equivalent to the corresponding lowercase letter.
+
+
+Input
+The first line contains T. Then T test cases follow.
+
+Each test case contains a two lines contains a string. The strings' lengths range from 1 to 100 inclusive. It is guaranteed that the strings are of the same length and also consist of uppercase and lowercase Latin letters.
+
+Output
+If the first string is less than the second one, print "-1".
+If the second string is less than the first one, print "1".
+If the strings are equal, print "0".
+Note that the letters' case is not taken into consideration when the strings are compared.
+
+Constraints
+                      1≤T≤50
+                      String length≤100
+
+For example:
+
+Input	Result
+3
+aaaa
+aaaA
+abs
+Abz
+abcdefg
+AbCdEfF
+0
+-1
+1
+
+program:
+T = int(input())
+
+
+for _ in range(T):
+    # Input strings
+    string1 = input().lower()  
+    string2 = input().lower()
+    
+    
+    if string1 < string2:
+        print("-1")
+    elif string1 > string2:
+        print("1")
+    else:
+        print("0")
+
+9.Reverse a string without affecting special characters
+ Given a string S, containing special characters and all the alphabets, reverse the string without affecting the positions of the special characters.
+Input:
+A&B
+Output:
+B&A
+Explanation: As we ignore '&' and
+As we ignore '&' and then reverse, so answer is "B&A".
+
+
+For example:
+
+Input	Result
+A&x#
+x&A#
+
+program:
+l=[]
+a=input()
+c=0
+n=len(a)
+for i in a:
+    l.append(i)
+z=[]
+for i in range(len(l)-1,-1,-1):
+    if l[i].isalpha()==True:
+        z.append(l[i])
+        c=c+1
+c=n-c
+for i in range(0,c):
+    z.append(0)
+for i in range(0,len(a)):
+    if l[i].isalnum()==False:
+        z.insert(i,l[i])
+for i in z:
+    if i!=0:
+        print(i,end='')
+
+10.Given a string S, which contains several words, print the count C of the words whose length is atleast L. (You can include punctuation marks like comma, full stop also as part of the word length. Space alone must be ignored)
+
+Input Format:
+
+The first line contains S.
+The second line contains L.
+
+ 
+
+Output Format:
+
+The first line contains C
+
+Boundary Conditions:
+
+2 <= Length of S <= 1000
+
+Example Input/Output 1:
+
+Input:
+
+During and after Kenyattas inauguration police elsewhere in the capital, Nairobi, tried to stop the opposition from holding peaceful demonstrations.
+5
+
+Output:
+
+13
+
+Explanation:
+
+The words of minimum length 5 are
+During
+after
+Kenyattas
+inauguration
+police
+elsewhere
+capital,
+Nairobi,
+tried
+opposition
+holding
+peaceful
+demonstrations.
+
+program:
+#word length
+s=input()
+l=int(input())
+z=s.split()
+c=0
+for i in z:
+    if len(i)>=l:
+        c=c+1
+print(c)        
